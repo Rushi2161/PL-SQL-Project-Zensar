@@ -1,3 +1,4 @@
+
 -- Table to store exchange rates
 CREATE TABLE exchange_rates (
     rate_id NUMBER PRIMARY KEY,
@@ -32,6 +33,10 @@ CREATE SEQUENCE user_transactions_SEQ START WITH 1 INCREMENT BY 1;
 
 -- Create sequence for conversion_history table
 CREATE SEQUENCE conversion_history_SEQ START WITH 1 INCREMENT BY 1;
+
+-- Insert test data into exchange_rates
+INSERT INTO exchange_rates (rate_id, currency_code, rate_to_usd, rate_date) VALUES (1, 'EUR', 1.10, SYSDATE);
+INSERT INTO exchange_rates (rate_id, currency_code, rate_to_usd, rate_date) VALUES (2, 'USD', 1.00, SYSDATE);
 
 -- Trigger to log rate updates and notify users if rate change exceeds 5%
 CREATE OR REPLACE TRIGGER notify_rate_update
